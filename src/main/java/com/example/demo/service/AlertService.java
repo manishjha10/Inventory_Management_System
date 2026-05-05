@@ -1,5 +1,5 @@
 package com.example.demo.service;
-
+import org.springframework.scheduling.annotation.Scheduled;
 import com.example.demo.model.Product;
 import com.example.demo.repository.ProductRepository;
 import org.springframework.stereotype.Service;
@@ -21,4 +21,14 @@ public class AlertService {
     public List<Product> getLowStockProducts() {
         return repo.findByQuantityLessThan(10);
     }
+
+    // Check low stock every minute
+    @Scheduled(fixedRate = 60000)
+public void checkLowStock() {
+    List<Product> lowStock = repo.findByQuantityLessThan(10);
+
+    if (!lowStock.isEmpty()) {
+        System.out.println("LOW STOCK ALERT: " + lowStock.size());
+    }
+}
 }
