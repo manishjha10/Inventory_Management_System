@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Inventory Management</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>IMS</h2>
+    <ul>
+        <li class="active">Dashboard</li>
+        <li>Products</li>
+        <li>Transactions</li>
+    </ul>
+</div>
+
+<div class="main">
+
+    <div class="header">
+        <h2>Inventory Dashboard</h2>
+    </div>
+
+    <!-- Dashboard -->
+    <div class="cards">
+        <div class="card blue">
+            <h3 id="totalProducts">0</h3>
+            <p>Total Products</p>
+        </div>
+        <div class="card red">
+            <h3 id="lowStock">0</h3>
+            <p>Low Stock</p>
+        </div>
+    </div>
+
+    <!-- Add Product -->
+    <div class="section">
+        <h3>Add Product</h3>
+        <div class="form">
+            <input id="name" placeholder="Name">
+            <input id="sku" placeholder="SKU">
+            <input id="category" placeholder="Category">
+            <input id="price" placeholder="Price">
+            <input id="quantity" placeholder="Quantity">
+            <button onclick="addProduct()">Add</button>
+        </div>
+    </div>
+
+    <!-- Table -->
+    <div class="section">
+        <h3>Product List</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>SKU</th>
+                    <th>Qty</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
